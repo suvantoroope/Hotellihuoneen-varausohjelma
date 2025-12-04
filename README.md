@@ -1,2 +1,2 @@
 # Hotellihuoneen-varausohjelma
-AMK C++ perusteet kurssin harjoitustyö.
+AMK C++ ohjelmoinnin perusteet kurssin harjoitustyö.
