@@ -1,5 +1,6 @@
 //Roope Suvanto
 //Hotellihuoneen varausjärjestelmä
+// 4 pisteen ohjelma
 
 
 #include <iostream>
