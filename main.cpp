@@ -70,8 +70,24 @@ int checkInput() {
         }
     }
 
+    // Alennusprosentin arpomiseen aliohjelma
+int discountPercentage() {
+    int discount = rand() % 3;
 
+    // Määritellään alennusprosentit
+    // 0 = ei alennusta, 1 = 10%, 2 = 20%
+    if (discount == 1) {
+        return 10;
+    }
 
+    else if (discount == 2) {
+        return 20;
+    }
+
+    else {
+        return 0;
+    }
+}
 
 int main() {
 
@@ -149,8 +165,12 @@ int main() {
                     // Luodaan satunnainen varausnumero väliltä 10000-99999
                     int reservationNumber = 10000 + rand() % 90000;
 
-                    // Lasketaan kokonaishinta
-                    double totalPrice = rooms[chosenRoomIndex].pricePerNight * nights;
+                    // Lasketaan kokonaishinta ja mahdollinen alennus
+                    double originalPrice = rooms[chosenRoomIndex].pricePerNight * nights;
+                    // Haetaan alennusprosentti
+                    int discount = discountPercentage();
+                    // Lasketaan lopullinen hinta alennuksen kanssa
+                    double finalPrice = originalPrice * ((100.0 - discount) / 100.0);
 
                     // Merkitään huone varatuksi
                     rooms[chosenRoomIndex].isBooked = true;
@@ -164,7 +184,7 @@ int main() {
                     cout << "Room Number: " << rooms[chosenRoomIndex].roomNumber << endl;
                     cout << "Room Type: " << (rooms[chosenRoomIndex].roomType  == 1 ? "Single" : "Double") << endl;
                     cout << "Nights: " << nights << endl;
-                    cout << "Total Price: " << totalPrice << "e" << endl;
+                    cout << "Total Price: " << finalPrice << "e" << endl;
                 }
         }
 
